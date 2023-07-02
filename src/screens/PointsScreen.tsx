@@ -86,7 +86,8 @@ export const PointsScreen = () => {
                     carouselRefNosotros={ carouselRefNosotros }
                     carouselRefEllos={ carouselRefEllos }
                     carouselRefPointNosotros={ carouselRefPointNosotros }
-                    setGameNosotros={ setGameNosotros }                    
+                    setGameNosotros={ setGameNosotros }
+                    setGameEllos={ setGameEllos } 
                 />
 
                 <SliderGameEllos 
@@ -95,7 +96,8 @@ export const PointsScreen = () => {
                     carouselRefEllos={ carouselRefEllos }
                     carouselRefNosotros={ carouselRefNosotros }
                     carouselRefPointEllos={ carouselRefPointEllos }
-                    setGameEllos={ setGameEllos }                    
+                    setGameEllos={ setGameEllos }
+                    setGameNosotros={ setGameNosotros }
                 />
 
             </View>
@@ -143,7 +145,16 @@ export const PointsScreen = () => {
                 )
                 &&
                 (
-                    <MatchWin />
+                    <MatchWin 
+                        setGameNosotros={ setGameNosotros }
+                        setGameEllos={ setGameEllos}
+                        setpPointNosotros={ setpPointNosotros }
+                        setPointEllos={ setPointEllos }
+                        carouselRefNosotros={ carouselRefNosotros }
+                        carouselRefEllos={ carouselRefEllos }
+                        carouselRefPointNosotros={ carouselRefPointNosotros }
+                        carouselRefPointEllos={ carouselRefPointEllos }
+                    />
                 )
 
             }

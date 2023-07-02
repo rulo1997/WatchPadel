@@ -11,10 +11,11 @@ interface Props {
     carouselRefNosotros?: any;
     carouselRefEllos: any;
     carouselRefPointNosotros?: any;
-    setGameNosotros: Dispatch<SetStateAction<number>>;    
+    setGameNosotros: Dispatch<SetStateAction<number>>;
+    setGameEllos: Dispatch<SetStateAction<number>>;
 }
 
-export const SliderGameNosotros = ( { equipo , data , carouselRefNosotros , carouselRefEllos , carouselRefPointNosotros , setGameNosotros } : Props ) => {    
+export const SliderGameNosotros = ( { equipo , data , carouselRefNosotros , carouselRefEllos , carouselRefPointNosotros , setGameNosotros , setGameEllos } : Props ) => {    
 
     const renderItem = ( item : Slide ) => {
 
@@ -59,6 +60,7 @@ export const SliderGameNosotros = ( { equipo , data , carouselRefNosotros , caro
         if( index === 1 ) {
 
             setGameNosotros( 0 );
+            setGameEllos( 0 );
 
         }
 
