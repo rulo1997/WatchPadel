@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
 import { Slide } from '../screens/PointsScreen';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 
 interface Props {
     equipo: String;
@@ -16,6 +16,8 @@ interface Props {
 }
 
 export const SliderGameNosotros = ( { equipo , data , carouselRefNosotros , carouselRefEllos , carouselRefPointNosotros , setGameNosotros , setGameEllos } : Props ) => {    
+
+    const [beforeIndex, setBeforeIndex] = useState<number>(0);
 
     const renderItem = ( item : Slide ) => {
 
@@ -42,25 +44,32 @@ export const SliderGameNosotros = ( { equipo , data , carouselRefNosotros , caro
 
     const onSnap = ( index: number , equipo: String ) => {        
 
-        setGameNosotros( index );
+        setGameNosotros( index );        
 
-        if( index === 0 && carouselRefEllos.current.currentIndex !== 0 ) {                        
+        if( beforeIndex === 3 ) {            
+    
+            if( index === 0 && carouselRefEllos.current.currentIndex !== 0 ) {
+    
+                carouselRefEllos.current?.snapToItem(0 , true , false);
+    
+                carouselRefPointNosotros.current?.snapToNext();            
 
-            carouselRefEllos.current?.snapToItem(0 , true , false);
+                setGameEllos( 0 );
+    
+            }        
+            else if( index === 0 && carouselRefEllos.current.currentIndex === 0 ) {
+    
+                carouselRefPointNosotros.current?.snapToNext();            
 
-            carouselRefPointNosotros.current?.snapToNext();            
-
-        }        
-        else if( index === 0 && carouselRefEllos.current.currentIndex === 0 ) {                        
-
-            carouselRefPointNosotros.current?.snapToNext();            
+                setGameEllos( 0 );
+    
+            }    
 
         }
 
         if( index === 1 ) {
-
-            setGameNosotros( 0 );
-            setGameEllos( 0 );
+    
+            setGameNosotros( 0 );            
 
         }
 
@@ -80,7 +89,7 @@ export const SliderGameNosotros = ( { equipo , data , carouselRefNosotros , caro
                 data={ data }
                 loop                
                 onSnapToItem={ index => onSnap( index , equipo ) }
-                // onLayout={ e => console.log(e) }
+                onBeforeSnapToItem={ setBeforeIndex }
                 renderItem={ ({ item }) => renderItem( item ) }                
                 vertical={ true }
                 removeClippedSubviews
