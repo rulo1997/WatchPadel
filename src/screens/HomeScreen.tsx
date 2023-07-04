@@ -8,7 +8,7 @@ export const HomeScreen = ( { navigation } : Props ) => {
 
     setTimeout(() => {
         
-        navigation.navigate('PointsScreen');
+        navigation.navigate('SelectOptionScreen');
 
     }, 1500);
 
