@@ -8,26 +8,19 @@ export const CreateRoomScreen = ( { navigation }: Props ) => {
 
     const onPlayGame = () => {
 
-        navigation.navigate('PointsScreen');
+        navigation.navigate('PointsScreen1');
 
     }
 
     return (        
         
-        
         <SafeAreaView style={ styles.view }>
 
             <ScrollView>
 
-                <KeyboardAvoidingView behavior={ 'height' }>
+                <KeyboardAvoidingView behavior='height'>
 
-                    <View 
-                        style={{                
-                            justifyContent: 'center'
-                            ,alignItems: 'center'
-                            ,marginBottom: 30                            
-                        }}
-                    >
+                    <View style={{ ...styles.viewCenter ,marginBottom: 30 }}>
 
                         <Text style={ styles.textLabel }>
                             ¡El nombre de la sala representa un ID único con el cúal los otros jugadores se van a poder conectar!
@@ -40,13 +33,7 @@ export const CreateRoomScreen = ( { navigation }: Props ) => {
 
                     </View>
 
-                    <View 
-                        style={{                
-                            justifyContent: 'center'
-                            ,alignItems: 'center'
-                            ,marginTop: 30
-                        }}
-                    >
+                    <View style={{ ...styles.viewCenter , marginTop: 30 }}>
 
                         <Text style={ styles.textLabel }>
                             ¡Vigila quien se conecta a tu sala! Determina una contraseña para conectarse a tu sala y empezar a jugar
@@ -59,7 +46,7 @@ export const CreateRoomScreen = ( { navigation }: Props ) => {
 
                     </View>
 
-                    <View style={{ alignItems:'center' , marginTop: 40 }}>
+                    <View style={{ ...styles.viewCenter , marginTop: 40 }}>
 
                         <TouchableOpacity
                             style={ styles.button }
@@ -84,10 +71,14 @@ export const CreateRoomScreen = ( { navigation }: Props ) => {
 const styles = StyleSheet.create({
     view: {
         flex: 1        
-        ,alignItems: 'center'        
-        ,justifyContent: 'center'
+        ,flexDirection: 'row'
+        ,alignItems: 'center'                
         ,padding: 15                
         ,backgroundColor: '#87CEEB'
+    }
+    ,viewCenter: {
+        alignItems:'center'
+        ,justifyContent: 'center'
     }
     ,button: {
         borderRadius: 25

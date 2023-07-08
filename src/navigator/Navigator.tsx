@@ -4,6 +4,7 @@ import { PointsScreen } from '../screens/PointsScreen';
 import { SelectOptionScreen } from '../screens/SelectOptionScreen';
 import { CreateRoomScreen } from '../screens/CreateRoomScreen';
 import { JoinRoomScreen } from '../screens/JoinRoomScreen';
+import { PointsScreen1 } from '../screens/PointsScreen1';
 
 export type RootStackParamList = {
     HomeScreen: undefined;
@@ -11,6 +12,7 @@ export type RootStackParamList = {
     SelectOptionScreen: undefined;
     CreateRoomScreen: undefined;
     JoinRoomScreen: undefined;
+    PointsScreen1: undefined;
   };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -26,7 +28,8 @@ export const Navigator = () => {
     >
 
         <Stack.Screen name="HomeScreen" component={  HomeScreen } />
-        <Stack.Screen name="PointsScreen" component={ PointsScreen } />
+        {/* <Stack.Screen name="PointsScreen" component={ PointsScreen } /> */}
+        <Stack.Screen name="PointsScreen1" component={ PointsScreen1 } />        
         <Stack.Screen name="SelectOptionScreen" component={ SelectOptionScreen } />
         <Stack.Screen name="CreateRoomScreen" component={ CreateRoomScreen } />
         <Stack.Screen name="JoinRoomScreen" component={ JoinRoomScreen } />        
