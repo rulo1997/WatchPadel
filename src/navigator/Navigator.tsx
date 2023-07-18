@@ -29,7 +29,13 @@ export const Navigator = () => {
 
         <Stack.Screen name="HomeScreen" component={  HomeScreen } />
         {/* <Stack.Screen name="PointsScreen" component={ PointsScreen } /> */}
-        <Stack.Screen name="PointsScreen1" component={ PointsScreen1 } />        
+        <Stack.Screen 
+          name="PointsScreen1" 
+          options={{
+            orientation: 'landscape'
+          }}
+          component={ PointsScreen1 } 
+        />        
         <Stack.Screen name="SelectOptionScreen" component={ SelectOptionScreen } />
         <Stack.Screen name="CreateRoomScreen" component={ CreateRoomScreen } />
         <Stack.Screen name="JoinRoomScreen" component={ JoinRoomScreen } />        
