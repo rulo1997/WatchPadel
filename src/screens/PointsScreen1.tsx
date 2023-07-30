@@ -18,7 +18,18 @@ export const PointsScreen1 = () => {
     
     const [alertProps, setAlertProps] = useState<Props>({ ancho: 150 , text: 'Punto de Oro' });
 
-    const { point1 , point2 , gamePoint1 , gamePoint2 , setPoint1 , setPoint2 , setGamePoint1 , setGamePoint2 , resetPoints , onResetAll } = usePoints();
+    const { 
+        point1
+        ,point2
+        ,gamePoint1
+        ,gamePoint2
+        ,setPoint1
+        ,setPoint2
+        ,setGamePoint1
+        ,setGamePoint2
+        ,resetPoints
+        ,onResetAll 
+    } = usePoints();
     
     const { startMoving , position } = useAnimation();
 
@@ -35,6 +46,13 @@ export const PointsScreen1 = () => {
 
             setAlertProps({ ancho: 200 , text: 'Set para Equipo 1' , color: 'red' });
             startMoving( -70 );
+
+            setTimeout(() => {
+                
+                resetPoints();
+
+            }, 1500);
+
         }
         else {
             
